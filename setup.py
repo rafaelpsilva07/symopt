@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 setuptools.setup(
     name="symopt",
     version="1.0.0",
-    install_requires=["sympy>=1.9"],
+    install_requires=["sympy>=1.0"],
     author="Rafael Pereira",
     author_email="rafaelpsilva07@gmail.com",
     description="A support library to calculate optimization using sympy",
