@@ -1,2 +1,17 @@
 # symopt
 A support library to calculate optimization using sympy
+
+
+# Realeases
+## 1.0.0 
+Calculates gradient and hessian for functions of several variables
+
+# Download 
+
+```shell
+pip install symopt
+```
+
+
+# Reference
+[1] ARORA, Jasbir S. Introduction to Optimum Design. Elservie. 2nd ed.
