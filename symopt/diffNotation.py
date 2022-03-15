@@ -14,7 +14,7 @@ References
 import sympy as sp
 
 
-class DifNotation:
+class DiffNotation:
     '''Creates a DifNotation object
 
     Parameters
@@ -29,7 +29,7 @@ class DifNotation:
     >>> import sympy as sp
     >>> x1, x2 = sp.symbols(['x1', 'x2'])
     >>> fx1x2 = x1**2 + x1*x2 + x2**2
-    >>> DifNotation(fx1x2, x1, x2)
+    >>> DiffNotation(fx1x2, x1, x2)
     '''
 
     def __init__(self, equation, *args):
