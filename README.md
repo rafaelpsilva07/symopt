@@ -1,3 +1,5 @@
+![symopt Logo](docs/images/symopt_logo_v2.PNG)
+
 # symopt
 A support library to calculate optimization using sympy
 
@@ -11,6 +13,10 @@ Calculates gradient and hessian for functions of several variables
 ```shell
 pip install symopt
 ```
+# Documentation
+- [User Guide]
+- [Developer's Guide]
+- [Code Reference]
 
 
 # Reference

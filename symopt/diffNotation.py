@@ -21,7 +21,7 @@ class DiffNotation:
     ----------
     equation : sympy.core.add.Add
        A sympy made equation.
-    *args : sympy.core.symbol.Symbol
+    args : sympy.core.symbol.Symbol
        Symbolic variable that will be differentiated.
 
     Examples
