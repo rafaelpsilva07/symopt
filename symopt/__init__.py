@@ -1,1 +1,1 @@
-from .diffNotation import DifNotation
+from .diffNotation import DiffNotation
