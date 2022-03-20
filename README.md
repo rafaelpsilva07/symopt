@@ -1,4 +1,4 @@
-![symopt Logo](docs/images/symopt_logo_v2.PNG)
+![symopt Logo](docs/static/symopt_logo_v2.PNG)
 
 # symopt
 A support library to calculate optimization using sympy
