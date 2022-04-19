@@ -143,27 +143,33 @@ class DiffNotation:
 
         k = 0 # conjugate gradient number of directions
         res = {} # dictionary that returns the solution
+        xk1 = {} # minimum point of first iteration
+        xk0 = {} # initial variable
 
-        for variable in self.args:
-            res[variable] = []
+        for i, variable in enumerate(self.args):
+            res[variable] = [X0[i]]
+            xk1[variable] = self.xi_pk[value].subs(a, alpha)
+            xk0[variable] = X0[i]
 
         while abs(error) > epsilon:
-            xk_n = {} # xk of current iteration
-            for i, value in enumerate(self.args):
-                xk_n[value] = self.xi_pk[value].subs(a, alpha)
+            #xk_n = {} # xk of current iteration
+            #for i, value in enumerate(self.args):
+            #    xk_n[value] = self.xi_pk[value].subs(a, alpha)
         
-            grad_k1 = -self.gradient().subs(xk_n)
+            grad_k1 = -self.gradient().subs(xk1)
             beta_kn = (grad_k1.norm() / self.grad_k.norm())**2
             self.grad_k = grad_k1 # updates self.grad_k
 
-            
+
             # update parametrization variables and error
             e = 0
             for i, value in enumerate(self.args):
                 d_kn = grad_k1[i] + beta_kn * self.dk[i]
                 e += d_kn**2
-                self.xi_pk[value] = xk_n[value] + a * d_kn
+                self.xi_pk[value] = xk1[value] + a * d_kn
                 self.dk[i] = d_kn # updates dk
+                xk1[value] = self.xi_pk[value].subs(a, alpha) # updates xk1
+
 
             fa = self.equation.subs(self.xi_pk) # update parametrization
             alpha = goldenSearch(fa, delta, debug_goldenSearch, I) # update alpha
@@ -172,8 +178,8 @@ class DiffNotation:
 
             if debug_CG:
                 for variable, value in self.xi_pk.items():
-                    print(f'{variable} =  {xk_n[variable]}')
-                    res[variable].append(xk_n[variable])
+                    print(f'{variable} =  {xk1[variable]}')
+                    res[variable].append(xk1[variable])
 
             if k > 500:
                 print(f'alpha = {alpha}')
